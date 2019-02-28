@@ -1,23 +1,12 @@
 version: 0.0.1   # Required
 apimServiceName: contosoapim-dev   # Required, must match name of an apim service deployed in the specified resource group
-apiVersionSet:   # Optional
-    id: myVersionSetID
-    displayName: myAPIVersionSet
-    description: a description
-    versioningScheme: Query
-    versionQueryName: versionQuery
-    versionHeaderName: versionHeader
+
 api:
   name: myAPI   # Required
   #openApiSpec: /Users/miaojiang/Work/azure-api-management-devops-example/example/demo/Input/swaggerPetstore.json    # Required, can be url or local file
   openApiSpec: https://petstore.swagger.io/v2/swagger.json
   policy: /Users/miaojiang/Work/azure-api-management-devops-example/example/demo/Input/apiPolicyHeaders.xml   # Optional, can be url or local file
   suffix: myAPIPet   # Required
-  apiVersion: v1   # Optional
-  apiVersionDescription: My first version   # Optional 
-  apiVersionSetId: myVersionSetID
-  revision: 1   # Optional
-  revisionDescription: My first revision   # Optional
   operations:   # Optional
     addPet: # Must match the operationId property of a path's operations
       policy: /Users/miaojiang/Work/azure-api-management-devops-example/example/demo/Input/operationRateLimit.xml   # Optional, can be url or local file
